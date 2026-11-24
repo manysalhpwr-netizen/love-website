@@ -8,6 +8,20 @@
 <link rel="icon" type="image/jpeg" href="eyes.jpg">
 
 <style>
+    #scrollHint {
+    color: #ff80ab;
+    font-size: 12px;
+    text-align: center;
+    direction: rtl;
+    opacity: 0;
+    transition: opacity 1s;
+    animation: hintMove 1.2s infinite;
+}
+
+@keyframes hintMove {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+}
 * {
     box-sizing: border-box;
 }
@@ -136,7 +150,9 @@ canvas {
 </div>
 
 <div id="loveMessage"></div>
-
+<div id="scrollHint">
+    ↓ برای ادامه پیام، به پایین بکش قشنگم
+</div>
 <audio id="music" src="love.mp3" loop></audio>
 
 <script>
@@ -261,6 +277,7 @@ function showMessage() {
         if (!started) return;
 
         message.style.opacity = "1";
+        document.getElementById("scrollHint").style.opacity = "1";
 
         const letters = Array.from(loveText);
         let i = 0;
@@ -340,7 +357,7 @@ function stopHeart() {
 
     message.textContent = "";
     message.style.opacity = "0";
-
+document.getElementById("scrollHint").style.opacity = "0";
     index = 0;
     frame = 0;
     lastTime = 0;
@@ -398,3 +415,4 @@ button.addEventListener("click", () => {
 
 </body>
 </html>
+ 
