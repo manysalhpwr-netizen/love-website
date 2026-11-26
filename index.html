@@ -179,7 +179,7 @@ let messageStarted = false;
 
 const loveText =
 "قشنگم...\n\n" +
-"می‌دونی چقدر دوستت دارم؟ شاید نتونم همیشه بهت بگم، ولی واقعاً بودنت برام خیلی قشنگه. قربون اون خنده‌های قشنگت برم، الهی همیشه دلت شاد باشه. با حرف زدنت، خندیدنت و حتی اون اخلاقای خاصت دلمو می‌بری. فقط می‌خوام همیشه خوشحال باشی و بدونی که یه نفر هست که خیلی خیلی دوستت داره.\n\n" +
+"می‌دونی چقدر دوستت دارم؟ شاید نتونم همیشه بهت بگم، ولی واقعاً بودنت برام خیلی قشنگه. قربون اون خنده‌های قشنگت برم، الهی همیشه دلت شاد باشه. با حرف زدنت، خندیدنت و حتی اون اخلاقای خاصت دلمو می‌بری. فقط می‌خوام همیشه خوشحال باشی و بدونی که یه نفر هست که خیلی خیلی دوستت داره.\n" +
 "دوستت دارم جوجه‌ی من ❤️";
 
 const words = ["LOVE", "YOU", "LOVE", "LOVE"];
@@ -351,7 +351,7 @@ function stopHeart() {
     clearInterval(typingTimer);
 
     music.pause();
-    music.currentTime = 0;
+    music.currentTime = 55;
 
     ctx.clearRect(0, 0, width, height);
 
@@ -395,17 +395,11 @@ button.addEventListener("click", () => {
 
     button.textContent = "♥ Stop Heart";
 
-    musicTimer = setTimeout(() => {
+    music.currentTime = 55;
 
-        if (started) {
-            music.currentTime = 0;
-
-            music.play().catch(error => {
-                console.log("Music playback error:", error);
-            });
-        }
-
-    }, 4000);
+music.play().catch(error => {
+    console.log("Music playback error:", error);
+});
 
     animationId = requestAnimationFrame(animate);
 
